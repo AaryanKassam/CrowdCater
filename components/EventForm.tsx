@@ -5,6 +5,7 @@ import { EventDetails } from '@/types'
 import { getFoodRecommendations } from '@/lib/ai'
 import { searchCateringRestaurants, getCurrentLocation, getLocationFromCoordinates } from '@/lib/googleMaps'
 import ErrorDisplay from './ErrorDisplay'
+import { Utensils, Lightbulb, Search, MapPin } from 'lucide-react'
 
 interface EventFormProps {
   onSubmit: (details: EventDetails) => void
@@ -143,15 +144,20 @@ export default function EventForm({
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Event Details</h2>
+    <div className="bg-white rounded-2xl border-2 border-black shadow-xl p-8 mb-8">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="bg-orange-500 w-10 h-10 rounded-lg flex items-center justify-center">
+          <Utensils className="w-6 h-6 text-white" />
+        </div>
+        <h2 className="text-2xl font-bold text-black">Event Details</h2>
+      </div>
       
       <ErrorDisplay error={error} onDismiss={() => setError(null)} />
       
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Number of Attendees */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-bold text-black mb-2">
             Number of Attendees
           </label>
           <input
@@ -181,14 +187,14 @@ export default function EventForm({
                 }
               }
             }}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-full px-4 py-2 border-2 border-black rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
             required
           />
         </div>
 
         {/* Event Type */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-bold text-black mb-2">
             Event Type
           </label>
           <input
@@ -196,27 +202,30 @@ export default function EventForm({
             value={eventType}
             onChange={(e) => handleEventTypeChange(e.target.value)}
             placeholder="e.g., Wedding, Corporate Meeting, Birthday Party"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-full px-4 py-2 border-2 border-black rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
             required
           />
         </div>
 
         {/* AI Recommendations */}
         {showRecommendations && aiRecommendations.length > 0 && (
-          <div className="bg-primary-50 border border-primary-200 rounded-lg p-4">
-            <p className="text-sm font-medium text-primary-900 mb-2">
-              Quick Select:
-            </p>
+          <div className="bg-yellow-50 border-2 border-black rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <Lightbulb className="w-5 h-5 text-black" />
+              <p className="text-sm font-bold text-black">
+                Popular for {eventType.toLowerCase()}:
+              </p>
+            </div>
             <div className="flex flex-wrap gap-2">
               {aiRecommendations.map((rec, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setFoodType(rec)}
-                  className={`px-3 py-1 rounded-full text-sm ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     foodType === rec
-                      ? 'bg-primary-600 text-white'
-                      : 'bg-white text-primary-700 border border-primary-300 hover:bg-primary-100'
+                      ? 'bg-black text-white border-2 border-black'
+                      : 'bg-white text-black border-2 border-black hover:bg-gray-50'
                   }`}
                 >
                   {rec}
@@ -228,21 +237,21 @@ export default function EventForm({
 
         {/* Food Type (Direct Input) */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Food Type (or select from AI recommendations above)
+          <label className="block text-sm font-bold text-black mb-2">
+            Food Type (or select from suggestions above)
           </label>
           <input
             type="text"
             value={foodType}
             onChange={(e) => setFoodType(e.target.value)}
             placeholder="e.g., Italian, BBQ, Vegetarian"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-full px-4 py-2 border-2 border-black rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
           />
         </div>
 
         {/* Budget */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-bold text-black mb-2">
             Budget
           </label>
           <div className="flex gap-4">
@@ -273,13 +282,13 @@ export default function EventForm({
                   }
                 }
               }}
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="flex-1 px-4 py-2 border-2 border-black rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
               required
             />
             <select
               value={budgetType}
               onChange={(e) => setBudgetType(e.target.value as 'total' | 'per-person')}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="px-4 py-2 border-2 border-black rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none bg-white"
             >
               <option value="total">Total</option>
               <option value="per-person">Per Person</option>
@@ -289,7 +298,7 @@ export default function EventForm({
 
         {/* Location */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-bold text-black mb-2">
             Location
           </label>
           <div className="flex gap-2">
@@ -298,19 +307,20 @@ export default function EventForm({
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="Enter city, address, or zip code"
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="flex-1 px-4 py-2 border-2 border-black rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
               required={!useLocation}
             />
             <button
               type="button"
               onClick={() => setUseLocation(!useLocation)}
-              className={`px-4 py-2 rounded-lg border ${
+              className={`px-4 py-2 rounded-lg border-2 border-black flex items-center gap-2 font-medium ${
                 useLocation
-                  ? 'bg-primary-600 text-white border-primary-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                  ? 'bg-green-500 text-white border-green-600'
+                  : 'bg-green-500 text-white hover:bg-green-600'
               }`}
             >
-              📍 Use My Location
+              <MapPin className="w-4 h-4" />
+              Use My Location
             </button>
           </div>
         </div>
@@ -319,8 +329,10 @@ export default function EventForm({
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          className="w-full bg-gradient-to-r from-black via-gray-800 to-gray-700 text-white py-3 rounded-lg font-bold hover:from-gray-900 hover:via-gray-800 hover:to-gray-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 border-2 border-black"
+          style={{ fontWeight: 700 }}
         >
+          <Search className="w-5 h-5" />
           {loading ? 'Searching...' : 'Find Catering Options'}
         </button>
       </form>
