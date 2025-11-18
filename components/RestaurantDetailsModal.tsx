@@ -1,5 +1,5 @@
 'use client'
-
+ 
 import { X } from 'lucide-react'
 import { Restaurant, FoodSuggestion } from '@/types'
 import { useEffect } from 'react'
