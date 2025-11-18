@@ -4,6 +4,4 @@ const nextConfig = {
     domains: ['maps.googleapis.com', 'lh3.googleusercontent.com'],
   },
 }
-
 module.exports = nextConfig
-
