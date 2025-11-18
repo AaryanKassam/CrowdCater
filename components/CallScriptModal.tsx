@@ -1,4 +1,4 @@
-'use client'
+'use client' 
 
 import { X, Copy, CheckCircle } from 'lucide-react'
 import { Restaurant, EventDetails } from '@/types'
