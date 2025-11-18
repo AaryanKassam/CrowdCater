@@ -1,15 +1,15 @@
-# CrowdCater - AI-Powered Catering Solutions
+# CrowdCater - Catering Solutions for every event
 
-A modern web application that helps you find the perfect catering for your event using AI recommendations and Google Maps integration.
+A modern web application that helps you find the perfect catering for your event
 
 ## Features
 
-- 🎯 **Event Details Input**: Enter number of attendees, event type, food preferences, and budget
-- 🤖 **AI Food Recommendations**: Get intelligent food suggestions based on your event type
-- 📍 **Location-Based Search**: Find catering restaurants in your area
-- 📞 **Contact Information**: Get phone numbers and websites for each restaurant
-- 📸 **Menu Images**: View menu images from Google Maps
-- 📝 **Call Scripts**: AI-generated professional call scripts for contacting restaurants
+- **Event Details Input**: Enter number of attendees, event type, food preferences, and budget
+- **Food Recommendations**: Get intelligent food suggestions based on your event type
+- **Location-Based Search**: Find catering restaurants in your area
+- **Contact Information**: Get phone numbers and websites for each restaurant
+- **Menu Images**: View menu images from Google Maps
+- **Call Scripts**: AI-generated professional call scripts for contacting restaurants
 
 Usage: 
 1. Enter the number of attendees for your event
