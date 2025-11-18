@@ -4,7 +4,7 @@ import { useState, useRef } from 'react'
 import EventForm from '@/components/EventForm'
 import RestaurantResults from '@/components/RestaurantResults'
 import { EventDetails, Restaurant } from '@/types'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react' 
 
 export default function Home() {
   const [eventDetails, setEventDetails] = useState<EventDetails | null>(null)
