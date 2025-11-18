@@ -7,9 +7,9 @@ Food Recommendations: Get intelligent food suggestions based on your event type
 Location-Based Search: Find catering restaurants in your area
 Contact Information: Get phone numbers and websites for each restaurant
 Menu Images: View menu images from Google Maps
-Call Scripts: AI-generated professional call scripts for contacting restaurants
-Usage:
+Call Scripts: Generated professional call scripts for contacting restaurants
 
+Usage:
 Enter the number of attendees for your event
 Specify the event type (e.g., Wedding, Corporate Meeting, Birthday Party)
 Wait for AI food recommendations or enter a food type directly
