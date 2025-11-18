@@ -1,6 +1,6 @@
 'use client'
 
-interface ErrorDisplayProps {
+interface ErrorDisplayProps { 
   error: string | null
   onDismiss: () => void
 }
