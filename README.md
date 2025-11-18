@@ -11,8 +11,8 @@ Features:
 - Call Scripts: Generated professional call scripts for contacting restaurants
 
 Usage:
-Enter the number of attendees for your event
 
+- Enter the number of attendees for your event
 - Specify the event type (e.g., Club event, Wedding, Corporate Meeting, Birthday Party)
 - Set your budget (total or per person)
 - Enter your location or use your current location
