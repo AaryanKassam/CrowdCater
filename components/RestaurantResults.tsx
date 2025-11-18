@@ -1,4 +1,4 @@
-'use client'
+'use client' 
 
 import { useState } from 'react'
 import { Restaurant, EventDetails, FoodSuggestion } from '@/types'
